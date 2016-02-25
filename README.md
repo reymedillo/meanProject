@@ -1,0 +1,2 @@
+# meanProject
+a meanJS repo
