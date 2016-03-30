@@ -6,7 +6,7 @@ module.exports = function(app) {
 
 	// Customers Routes
 	app.route('/customers')
-		.get(customers.list)
+		.get(users.requiresLogin, customers.list)
 		.post(users.requiresLogin, customers.create);
 
 	app.route('/customers/:customerId')

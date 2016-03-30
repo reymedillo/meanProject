@@ -9,6 +9,7 @@ customersApp.controller('CustomersController', ['$scope', '$stateParams', 'Authe
 
 		// Find a list of Customers
 		this.customers = Customers.query();
+		console.log(Customers.get);
 	}
 ]);
 customersApp.controller('CustomersCreateController', ['$scope', 'Customers',

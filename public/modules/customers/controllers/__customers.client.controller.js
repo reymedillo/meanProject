@@ -4,7 +4,7 @@
 angular.module('customers').controller('CustomersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Customers',
 	function($scope, $stateParams, $location, Authentication, Customers) {
 		$scope.authentication = Authentication;
-
+		$scope.customers = Customers.query();
 		// Create new Customer
 		$scope.create = function() {
 			// Create new Customer object
@@ -70,6 +70,7 @@ angular.module('customers').controller('CustomersController', ['$scope', '$state
 		// Find a list of Customers
 		$scope.find = function() {
 			$scope.customers = Customers.query();
+			return $scope.customers;
 		};
 
 		// Find existing Customer

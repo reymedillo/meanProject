@@ -72,7 +72,7 @@ exports.delete = function(req, res) {
 /**
  * List of Customers
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
 	Customer.find().sort('-created').populate('user', 'displayName').exec(function(err, customers) {
 		if (err) {
 			return res.status(400).send({
@@ -101,6 +101,7 @@ exports.customerByID = function(req, res, next, id) {
  */
 exports.hasAuthorization = function(req, res, next) {
 	if (req.customer.user.id !== req.user.id) {
+	//if (req.user.id !== 'admin') {	
 		return res.status(403).send('User is not authorized');
 	}
 	next();
